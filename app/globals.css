@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-canvas text-white min-h-screen antialiased;
+}
+
+.glow {
+  position: relative;
+  z-index: 0;
+}
+
+.glow::before {
+  content: "";
+  position: absolute;
+  inset: -120px;
+  background: radial-gradient(
+    circle at top,
+    rgba(67, 243, 255, 0.35),
+    rgba(12, 31, 52, 0.05) 60%,
+    transparent 75%
+  );
+  filter: blur(65px);
+  z-index: -2;
+  opacity: 0.75;
+}
+
+.glow::after {
+  content: "";
+  position: absolute;
+  inset: -160px;
+  background: conic-gradient(
+    from 0deg,
+    rgba(67, 243, 255, 0.25),
+    rgba(17, 125, 165, 0.05),
+    rgba(67, 243, 255, 0.2),
+    rgba(17, 125, 165, 0.05)
+  );
+  filter: blur(90px);
+  z-index: -3;
+  opacity: 0.6;
+}
